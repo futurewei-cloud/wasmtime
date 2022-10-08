@@ -211,7 +211,7 @@ pub struct Filestat {
     pub ctim: Option<std::time::SystemTime>,
 }
 
-pub(crate) trait TableFileExt {
+pub trait TableFileExt {
     fn get_file(&self, fd: u32) -> Result<&FileEntry, Error>;
     fn get_file_mut(&mut self, fd: u32) -> Result<&mut FileEntry, Error>;
 }
@@ -224,7 +224,7 @@ impl TableFileExt for crate::table::Table {
     }
 }
 
-pub(crate) struct FileEntry {
+pub struct FileEntry {
     caps: FileCaps,
     file: Box<dyn WasiFile>,
 }

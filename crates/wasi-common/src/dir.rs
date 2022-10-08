@@ -51,7 +51,7 @@ pub trait WasiDir: Send + Sync {
     ) -> Result<(), Error>;
 }
 
-pub(crate) struct DirEntry {
+pub struct DirEntry {
     caps: DirCaps,
     file_caps: FileCaps,
     preopen_path: Option<PathBuf>, // precondition: PathBuf is valid unicode
