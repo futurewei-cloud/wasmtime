@@ -118,9 +118,9 @@ impl WasiCtx {
         dir: Box<dyn WasiDir>,
         path: impl AsRef<Path>,
     ) -> Result<(), Error> {
-        let caps = DirCaps::all();
+        let dir_caps = DirCaps::all();
         let file_caps = FileCaps::all();
-        self.push_preopened_dir_with_caps (dir, path, caps, file_caps)
+        self.push_preopened_dir_with_caps (dir, path, dir_caps, file_caps)
     }
 
     pub fn push_preopened_dir_with_caps(
